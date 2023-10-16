@@ -13,3 +13,8 @@ Para ejecutar la aplicación local, utilizar el comando `npm`.
 ```
 npm install && npm run dev
 ```
+
+## Deployment
+
+El proyecto esta desplegado en :
+https://mp-ecommerce-nodejs-production.up.railway.app/
