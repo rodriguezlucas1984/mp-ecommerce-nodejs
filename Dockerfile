@@ -1,6 +1,4 @@
-FROM node:16
-
-ENV NODE_ENV=production
+FROM node:18
 
 WORKDIR /app
 
@@ -12,4 +10,4 @@ COPY . .
 
 EXPOSE 8080
 
-CMD [ "node", "index.js" ]
+CMD [ "npm", "start" ]
