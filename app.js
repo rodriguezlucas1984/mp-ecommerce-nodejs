@@ -5,8 +5,9 @@ const cors = require("cors");
 const morgan = require("morgan");
 
 const { crearPreferencias } = require("./util/preferencias_mp");
+const { PORT } = require("./constants");
 
-const port = process.env.PORT || 3000;
+const port = PORT;
 
 const app = express();
 
@@ -36,7 +37,6 @@ app.use(bodyParser.json());
 app.use(express.static("assets"));
 app.use("/assets", express.static(__dirname + "/assets"));
 app.use(morgan("dev"));
-
 
 //Routes
 app.use(require("./routes/phone"));

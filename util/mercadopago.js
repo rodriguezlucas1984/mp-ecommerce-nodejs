@@ -1,9 +1,23 @@
 // SDK de Mercado Pago
 const { MercadoPagoConfig, Preference, Payment } = require("mercadopago");
+
+const {
+  accessToken,
+  integratorId,
+  externalReference,
+  testUserName,
+  testUserSurName,
+  testUserEmail,
+  backcUrlPending,
+  backcUrlSuccess,
+  backcUrlFailure,
+  notificactionUrl,
+} = require("../constants");
+
 // Agrega credenciales
 const client = new MercadoPagoConfig({
-  accessToken: process.env.accessToken,
-  options: { integratorId: process.env.integratorId },
+  accessToken: accessToken,
+  options: { integratorId: integratorId },
 });
 
 const preference = new Preference(client);
@@ -12,7 +26,7 @@ const payment = new Payment(client);
 const crearPreferencia = async (id, titulo, precio, imagen, metadata) => {
   // Crea un objeto de preferencia
   let preferencia = {
-    external_reference: process.env.externalReference,
+    external_reference: externalReference,
     items: [
       {
         id,
@@ -35,9 +49,9 @@ const crearPreferencia = async (id, titulo, precio, imagen, metadata) => {
       installments: 6,
     },
     payer: {
-      name: process.env.testUserName,
-      surname: process.env.testUserSurname,
-      email: process.env.testUserEmail,
+      name: testUserName,
+      surname: testUserSurName,
+      email: testUserEmail,
 
       phone: {
         area_code: "351",
@@ -50,12 +64,12 @@ const crearPreferencia = async (id, titulo, precio, imagen, metadata) => {
       },
     },
     back_urls: {
-      pending: process.env.backcUrlPending,
-      success: process.env.backcUrlSuccess,
-      failure: process.env.backcUrlFailure,
+      pending: backcUrlPending,
+      success: backcUrlSuccess,
+      failure: backcUrlFailure,
     },
     auto_return: "approved",
-    notification_url: process.env.notificactionUrl,
+    notification_url: notificactionUrl,
     metadata: metadata ? { ...metadata } : {},
   };
 

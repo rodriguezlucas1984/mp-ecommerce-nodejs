@@ -118,3 +118,6 @@ dist
 
 # env
 .dev.env
+
+# data
+data/

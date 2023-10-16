@@ -1,7 +1,9 @@
 const fs = require("fs/promises");
 const path = require("path");
+
 const { consultarPreferenciaPorId } = require("../util/mercadopago");
 const { actualizarPreferencia } = require("../util/preferencias_mp");
+const { publicKey } = require("../constants");
 
 const p = path.join(path.dirname(require.main.filename), "data", "phones.json");
 
@@ -44,7 +46,7 @@ const obtenerTelefono = async (req, res) => {
   res.render("detail", {
     ...phone,
     view: "checkout",
-    public_key: process.env.publicKey,
+    public_key: publicKey,
   });
 };
 
