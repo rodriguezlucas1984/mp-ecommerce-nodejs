@@ -1,0 +1,94 @@
+{{#ifeq estado "approved"}}
+  <p
+    style="background-color: green; color:#fff;font-size:30px;text-align: center;"
+  >Bien titan pagaste!!!</p>
+{{/ifeq}}
+
+{{#ifeq estado "pending"}}
+  <p
+    style="background-color: yellow; color:#000;font-size:30px;text-align: center;"
+  >Tu pago esta pendiente!!</p>
+{{/ifeq}}
+
+{{#ifeq estado "in_process"}}
+  <p
+    style="background-color: yellow; color:#000;font-size:30px;text-align: center;"
+  >Tu pago esta en proceso!!</p>
+{{/ifeq}}
+
+
+{{#ifeq estado "rejected"}}
+  <p
+    style="background-color: red; color:#fff;font-size:30px;text-align: center;"
+  >Ups... tu pago fallo</p>
+{{/ifeq}}
+
+<div class="as-producttile large-7" style="height: 90vh;">
+    <a href="/" class="mercadopago-button" style="padding: 5px; ;" >VOLVER A LA TIENDA</a>
+  <h2 style="background-color: lightgrey; color:darkslateblue">{{phone.title}}</h2>
+  <hr>
+  <div class="as-producttile-tilehero ">
+
+    <div class="images mini-gallery gal1">
+
+      <div class="as-isdesktop ">
+
+        <div class="as-tilegallery-element as-image-selected">
+          <img
+            src="{{phone.picture_url}}"
+            class="ir ir item-image as-producttile-image"
+            alt=""
+            data-desc={{phone.title}}
+            style="max-height: 500px;"
+          />
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+<hr>
+  <div style="background-color: lightgrey; color:darkslateblue">
+     <div class=" as-producttile-currentprice" style="font-weight: bolder;">
+        MARCA:{{pago.metadata.marca}}
+      </div>
+      <div class=" as-producttile-currentprice" style="font-weight: bolder;">
+        PRECIO:{{phone.unit_price}}
+      </div>
+      <div class=" as-producttile-currentprice" style="font-weight: bolder;">
+        CANTIDAD:{{phone.quantity}}
+      </div>
+      <div class=" as-producttile-currentprice" style="font-weight: bolder;
+        {{#ifeq estado "rejected"}}
+           background-color: red; 
+           color:#fff;
+        {{/ifeq}}
+        {{#ifeq estado "approved"}}
+            background-color: green; 
+            color:#fff
+        {{/ifeq}}
+        {{#ifeq estado "pending"}}
+            background-color:yellow;
+            color:#000;
+        {{/ifeq}}
+        {{#ifeq estado "in_process"}}
+            background-color:yellow;
+            color:#000;
+        {{/ifeq}}
+      
+      "            
+
+      >
+        FECHA DE APROBACIÓN DE PAGO:{{pago.date_approved}}
+      </div>
+    </div>
+
+  </div>
+    
+</div>
+
+<pre
+class=" large-5 "
+  style="padding: 8px 0; height: 90vh;background-color: #333;color:#fff;overflow-y: auto;"
+>//PAGO
+  <code>{{json pago}}</code></pre>
