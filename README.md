@@ -8,6 +8,11 @@ https://github.com/hdlopez/mp-ecommerce-nodejs
 
 ## Entorno local
 
+### Variables de entotno
+Crear una copia del archivo `.example.dev.env`, que se encuentra en la raiz del proyecto y renombrarla `.dev.env` (en la misma ubicación). A cada variable que se encuentra dentro del fichero colocarle su respectivo valor.
+
+
+### Ejecutar 
 Para ejecutar la aplicación local, utilizar el comando `npm`.
 
 ```
